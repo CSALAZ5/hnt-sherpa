@@ -1,0 +1,35 @@
+<bdb-at-toast #atToastElement1 [type]="currentType" [titleToast]="currentToastTitle"
+              [message]="currentToastMessage"></bdb-at-toast>
+<bdb-ml-loader #loader text-label="Registro de usuario en progreso"></bdb-ml-loader>
+
+<bdb-ml-basic-data 
+can-continue-btn=true 
+(mlDataChanged)="formValidation($event)" (mlCanContinue)="confirmCreation()"
+elements='[
+  {
+    "component":"bdb-at-input",
+    "name":"idNumber",
+    "props":{"idEl":"idNumber",
+            "name":"idNumber",
+            "label":"Número de cédula",
+            "placeholder":"#",
+            "type":"NUMBER",
+            "status":"ENABLED",
+            "required":"true",
+            "message":"Ingresa un número de documento válido"}
+  },
+  {
+    "component":"bdb-at-input",
+    "name":"name",
+    "props":{"idEl":"name",
+    "name":"name","label":"Primer Nombre","placeholder":"-","type":"TEXT","status":"ENABLED","required":"true","message":"Ingresa tu nombre"}},{"component":"bdb-at-input","name":"lastName","props":{"idEl":"lastName","name":"lastName","label":"Primer Apellido","placeholder":"-","type":"TEXT","status":"ENABLED","required":"true","message":"Ingresa tu apellido"}},{"component":"bdb-at-input","name":"email","props":{"idEl":"email","name":"email","label":"Correo Electrónico","placeholder":"@","type":"EMAIL","status":"ENABLED","required":"true","message":"Ingresa un correo electrónico válido"}},{"component":"bdb-ml-date-input","name":"dateBirth","props":{"name":"dateBirth","text":"Fecha de nacimiento","state":"ENABLED","errormessage":"* Edad permitida para solicitar un producto es entre 18 y 70 años"}},{"component":"bdb-at-input","name":"monthlyIncome","props":{"idEl":"monthlyIncome","name":"monthlyIncome","label":"Ingresos Mensuales","placeholder":"0.0","type":"AMOUNT","status":"ENABLED","required":"true","message":"Ingresa un monto"}},{"component":"bdb-at-autocomplete","name":"expeditionPlaceId","props":{"idEl":"expeditionPlaceId","name":"expeditionPlaceId","label":"Lugar de expedición de documento","placeholder":"-","options":[{"text":"MEDELLIN - ANTIOQUIA","value":"05001000"},{"text":"BOGOTA, D.C. - BOGOTA D.C.- CUND.","value":"11001000"},{"text":"CALI - VALLE","value":"76001000"}],"status":"ENABLED","required":"true","message":"Ingresa el lugar de expedición"}},{"component":"bdb-ml-button-selector","name":"socialStratum","props":{"idEl":"socialStratum","name":"socialStratum","label":"Estrato","selectionValues":[{"id":0,"text":"1","value":1,"disabled":false},{"id":1,"text":"2","value":2,"disabled":false},{"id":2,"text":"3","value":3,"disabled":false},{"id":3,"text":"4","value":4,"disabled":false},{"id":4,"text":"5","value":5,"disabled":false},{"id":5,"text":"6","value":6,"disabled":false}]}},{"component":"bdb-ml-multi-selector","name":"occupation","label":"¿Cuál es tu ocupación?","props":{"valuesToCard":[{"title":"Asalariado","desc":"Con contrato laboral","value":"occupation","isChecked":"false"},{"title":"Independiente","desc":"Actividad sin contrato","value":"occupation","isChecked":"false"},{"title":"Pensionado","desc":"Jubilado de actividades","value":"occupation","isChecked":"false"},{"title":"Otros","desc":"Estudiante, ama de casa, etc","value":"occupation","isChecked":"false"}]}},{"component":"bdb-at-check-button","name":"checkbuttonTerms","props":{"id":"checkbuttonTerms","labelHtml":"Acepto <span class=\"bdb-at-checkbox__content__label--link\" onclick=\"test()\">Términos y condiciones ›</span>","valuesToCheck":"[{\"value\": \"checkbuttonTerms\", \"isChecked\":\"false\"}]"}}]'></bdb-ml-basic-data>
+<bdb-ml-modal-normal size-modal="sm" titlemodal="Confirmación" #normalModal>
+  <div slot="body-modal">
+    <p>¿Desea confirmar la creación de {{user.name}} {{user.surname}}?</p>
+    <div class="buttonsContainer">
+      <button class='bdb-at-btn  bdb-at-btn--primary bdb-at-btn--sm '>Cancelar<span>›</span></button>
+      <button class='bdb-at-btn  bdb-at-btn--primary bdb-at-btn--sm ' (click)="createUser()">Aceptar<span>›</span>
+      </button>
+    </div>
+  </div>
+</bdb-ml-modal-normal>

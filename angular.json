@@ -32,10 +32,16 @@
             "tsConfig": "tsconfig.app.json",
             "assets": [
               "src/favicon.ico",
-              "src/assets"
+              "src/assets",
+              {
+                "glob": "**/*",
+                "input": "./node_modules/@npm-bbta/bbog-dig-dt-webcomponents-lib/dist/collection/assets/",
+                "output": "./assets"
+              }
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.css",
+              "node_modules/@npm-bbta/bbog-dig-dt-webcomponents-lib/dist/bdb-webcomponents/bdb-webcomponents.css"
             ],
             "scripts": []
           },

@@ -1,0 +1,93 @@
+<div class="ModalMainContainer">
+  <h1>Datos básicos</h1>
+  <div class="ModalMainContainer-userDataContainer">
+    <div class="ModalMainContainer-userDataContainer-basicDataContainer">
+      <div class="ModalMainContainer-userDataContainer-basicDataContainer-box">
+        <div class="ModalMainContainer-userDataContainer-basicDataContainer-box-content">
+          <h4>Nombre</h4><span (click)="updateEditInput('nameData')"
+                               [ngClass]="{'ico-write-edit':this.inputsState.inputName , '': !this.inputsState.inputName}"></span>
+        </div>
+        <p *ngIf="this.inputsState.inputName; else elseBlock" id="nameData">{{currentUser.name}}</p>
+      </div>
+      <ng-template #elseBlock>
+        <div class="ModalMainContainer-userDataContainer-basicDataContainer-box-content">
+          <bdb-at-input placeholder="Nuevo nombre" type="TEXT" status="ENABLED" required="true"
+                        view-mode></bdb-at-input>
+          <span (click)="updateEditInput('nameData')" class="ico-reload"></span></div>
+      </ng-template>
+      <div class="ModalMainContainer-userDataContainer-basicDataContainer-box">
+        <div class="ModalMainContainer-userDataContainer-basicDataContainer-box-content">
+          <h4>Apellido</h4><span (click)="updateEditInput('surnameData')"
+                                 [ngClass]="{'ico-write-edit':this.inputsState.inputSurname , '': !this.inputsState.inputName}"></span>
+        </div>
+        <p *ngIf="this.inputsState.inputSurname; else elseSurnameBlock" id="surnameData">{{currentUser.surname}}</p>
+      </div>
+      <ng-template #elseSurnameBlock>
+        <div class="ModalMainContainer-userDataContainer-basicDataContainer-box-content">
+          <bdb-at-input placeholder="Nuevo Apellido" type="TEXT" status="ENABLED" required="true"
+                        view-mode></bdb-at-input>
+          <span (click)="updateEditInput('surnameData')" class="ico-reload"></span></div>
+      </ng-template>
+      <div class="ModalMainContainer-userDataContainer-basicDataContainer-box">
+        <div class="ModalMainContainer-userDataContainer-basicDataContainer-box-content">
+          <h4>Correo</h4><span (click)="updateEditInput('emailData')"
+                               [ngClass]="{'ico-write-edit':this.inputsState.inputEmail , '': !this.inputsState.inputEmail}"></span>
+        </div>
+        <p *ngIf="this.inputsState.inputEmail; else elseEmailBlock" id="emailData">{{currentUser.email}}</p>
+      </div>
+      <ng-template #elseEmailBlock>
+        <div class="ModalMainContainer-userDataContainer-basicDataContainer-box-content">
+          <bdb-at-input placeholder="Nuevo correo" type="TEXT" status="ENABLED" required="true"
+                        view-mode></bdb-at-input>
+          <span (click)="updateEditInput('emailData')" class="ico-reload"></span></div>
+      </ng-template>
+    </div>
+    <div class="ModalMainContainer-userDataContainer-line"></div>
+    <h1>Datos adicionales</h1>
+    <div class="ModalMainContainer-userDataContainer-otherDataContainer">
+      <div class="ModalMainContainer-userDataContainer-otherDataContainer-box">
+        <div class="ModalMainContainer-userDataContainer-basicDataContainer-box-content">
+          <h4>Ingresos mensuales</h4><span (click)="updateEditInput('salaryData')"
+                                           [ngClass]="{'ico-write-edit':this.inputsState.inputSalary , '': !this.inputsState.inputSalary}"></span>
+        </div>
+        <p *ngIf="this.inputsState.inputSalary; else elseSalaryBlock" id="salaryData">{{currentUser.salary}}</p>
+      </div>
+      <ng-template #elseSalaryBlock>
+        <div class="ModalMainContainer-userDataContainer-otherDataContainer-box-content">
+          <bdb-at-input placeholder="Nuevos ingresos" type="AMOUNT" status="ENABLED"
+                        required="true" message=""></bdb-at-input>
+          <span (click)="updateEditInput('salaryData')" class="ico-reload"></span></div>
+      </ng-template>
+      <div class="ModalMainContainer-userDataContainer-otherDataContainer-box">
+        <div class="ModalMainContainer-userDataContainer-basicDataContainer-box-content">
+          <h4>Estrato</h4><span (click)="updateEditInput('socialClassData')"
+                                [ngClass]="{'ico-write-edit':this.inputsState.inputSocialClass , '': !this.inputsState.inputSocialClass}"></span>
+        </div>
+        <p *ngIf="this.inputsState.inputSocialClass; else elseSocialClassBlock" id="socialClassData">{{currentUser.socialClass}}</p>
+      </div>
+      <ng-template #elseSocialClassBlock>
+        <div class="ModalMainContainer-userDataContainer-otherDataContainer-box-content">
+          <bdb-at-dropdown name="1" status="ENABLED" message="" placeholder="Nuevo estrato"
+                           options='[{"text":"1", "value":1}, {"text":"2  ", "value":2}, {"text":"3", "value":3}, {"text":"4", "value":4}, {"text":"5", "value":5}]'></bdb-at-dropdown>
+          <span (click)="updateEditInput('socialClassData')" class="ico-reload"></span></div>
+      </ng-template>
+      <div class="ModalMainContainer-userDataContainer-otherDataContainer-box">
+        <div class="ModalMainContainer-userDataContainer-otherDataContainer-box-content">
+          <h4>Ocupación</h4><span (click)="updateEditInput('ocupationData')"
+                                  [ngClass]="{'ico-write-edit':this.inputsState.inputOcupation , '': !this.inputsState.inputOcupation}"></span>
+        </div>
+        <p *ngIf="this.inputsState.inputOcupation; else elseOcupationBlock" id="ocupationData">{{currentUser.ocupation}}</p>
+      </div>
+      <ng-template #elseOcupationBlock>
+        <div class="ModalMainContainer-userDataContainer-otherDataContainer-box-content">
+          <bdb-at-dropdown name="1" status="ENABLED" message="" placeholder="Nuevo estrato"
+                           options='[{"text":"Asalariado", "value":"Asalariado"}, {"text":"Independiente", "value":"Independiente"}, {"text":"Pensionado", "value":"Pensionado"}, {"text":"Otros", "value":"Otros"}]'></bdb-at-dropdown>
+          <span (click)="updateEditInput('ocupationData')" class="ico-reload"></span></div>
+      </ng-template>
+
+    </div>
+
+  </div>
+
+
+</div>

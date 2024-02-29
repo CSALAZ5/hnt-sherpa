@@ -20,16 +20,16 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'hnt-sherpa'`, () => {
+  it(`should have as title 'spike-angular'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('hnt-sherpa');
+    expect(app.title).toEqual('spike-angular');
   });
 
   it('should render title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('h1')?.textContent).toContain('Hello, hnt-sherpa');
+    expect(compiled.querySelector('.content span')?.textContent).toContain('spike-angular app is running!');
   });
 });

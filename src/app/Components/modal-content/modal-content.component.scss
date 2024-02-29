@@ -1,0 +1,86 @@
+.ModalMainContainer {
+  //background-color: antiquewhite;
+  width: 100%;
+  height: 200px;
+
+  h1 {
+    text-align: start;
+    font-family: Roboto-Regular, sans-serif;
+  }
+
+  &-userDataContainer {
+
+    &-basicDataContainer, &-otherDataContainer {
+      width: 90%;
+      margin: auto;
+      display: flex;
+      justify-content: space-between;
+
+      &-box {
+        width: fit-content;
+        height: fit-content;
+
+        p {
+          margin-top: 0;
+          font-size: 20px;
+          margin-left: 8px;
+        }
+
+        &-content {
+          margin-left: 5px;
+          display: flex;
+          align-items: center;
+
+          h4 {
+            margin: 0;
+          }
+
+          span {
+            font-size: 24px;
+            margin-left: 5px;
+            margin-bottom: 0;
+
+            &:hover {
+              cursor: pointer;
+            }
+          }
+
+
+        }
+      }
+    }
+
+    &-line {
+      width: 95%;
+      margin: auto;
+      height: 2px;
+      background-color: #0043A9;
+    }
+
+    &-otherDataContainer {
+      height: 200px;
+      width: 90%;
+      margin: auto;
+      margin-top: 20px;
+
+      &-box {
+        width: 40%;
+        margin-left: 10px;
+
+        p {
+          text-align: start;
+
+        }
+      }
+    }
+
+
+  }
+
+
+}
+
+
+.editData {
+  display: none;
+}

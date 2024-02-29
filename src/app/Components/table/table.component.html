@@ -1,0 +1,12 @@
+<div>
+  <bdb-at-confetti #confetti1></bdb-at-confetti>
+  <bdb-ml-dynamic-table (buttonClick)="rowSelected($event)" column-table='[{"colName":"", "control":"id"},{"colName":"Nombre", "control":"text"},
+      {"colName":"Apellido", "control":"text"},{"colName":"Documento", "control":"text"},
+      {"colName": "", "control":"ico-action"}]'[rowTable]='users'></bdb-ml-dynamic-table>
+
+  <bdb-ml-modal-normal size-modal="lg" titlemodal="Actualización de información" #normalModal>
+    <app-modal-content [currentUser]="currentUser" [usersList]="usersList" slot="body-modal"></app-modal-content>
+  </bdb-ml-modal-normal>
+
+</div>
+
